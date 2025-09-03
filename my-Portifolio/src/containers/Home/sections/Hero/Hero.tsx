@@ -11,9 +11,15 @@ const Hero = () => {
     height: "100vh",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.up("xs")]: {
+      paddingTop: "100px",
+    },
+    [theme.breakpoints.up("md")]: {
+      paddingTop: "0px",
+    },
   }));
   const StyledImage = styled("img")(({ theme }) => ({
-    width: "90%",
+    width: "75%",
     borderRadius: "50%",
     border: `1px solid ${theme.palette.primary.contrastText}`,
   }));
@@ -25,7 +31,7 @@ const Hero = () => {
           <Grid container spacing={2}>
             <Grid size={{ xs: 12, md: 4 }}>
               <Box position={"relative"}>
-                <Box position={"absolute"} width={"150%"} top={-100} right={0}>
+                <Box position={"absolute"} width={"110%"} top={-100} right={0}>
                   <AnimatedBackground />
                 </Box>
                 <Box position={"relative"} textAlign={"center"}>
@@ -62,7 +68,7 @@ const Hero = () => {
                   display={"flex"}
                   justifyContent={"center"}
                 >
-                  <StyledButton>
+                  <StyledButton onclick={() => console.log("Download")}>
                     <DownloadIcon />
                     <Typography>Download CV</Typography>
                   </StyledButton>
@@ -73,7 +79,7 @@ const Hero = () => {
                   display={"flex"}
                   justifyContent={"center"}
                 >
-                  <StyledButton>
+                  <StyledButton onclick={() => console.log("Contact")}>
                     <EmailIcon />
                     <Typography>Contact me</Typography>
                   </StyledButton>
